@@ -5,8 +5,7 @@ class HeaderCuadrado extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      color:Color(0xff615AAB),
-      
+      color: Color(0xff615AAB),
     );
   }
 }
@@ -17,9 +16,10 @@ class HeaderBordesRedondeados extends StatelessWidget {
     return Container(
       height: 300,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(bottomLeft:Radius.circular(70), bottomRight:Radius.circular(70) ),
-        color:Color(0xff615AAB),
-      ),   
+        borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(70), bottomRight: Radius.circular(70)),
+        color: Color(0xff615AAB),
+      ),
     );
   }
 }
@@ -37,36 +37,33 @@ class HeaderDiagonal extends StatelessWidget {
   }
 }
 
-class _HeaderDiagonalPainter extends CustomPainter{
+class _HeaderDiagonalPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-      
-      final lapiz = Paint();
-      
-      // Propiedades
-      lapiz.color       = Color(0xff615AAB);
-      lapiz.style       = PaintingStyle.fill; //.fill rellenar
-      lapiz.strokeWidth = 2;
+    final lapiz = Paint();
 
-      final path = new Path();
+    // Propiedades
+    lapiz.color = Color(0xff615AAB);
+    lapiz.style = PaintingStyle.fill; //.fill rellenar
+    lapiz.strokeWidth = 2;
 
-      //Dibujar con el path y el lapiz
-      path.moveTo(0         , size.height*0.35);
-      path.lineTo(size.width, size.height*0.30);
-      path.lineTo(size.width, 0);
-      path.lineTo(0, 0);
-      
-      // path.lineTo(0, size.height*0.5);      
-      canvas.drawPath(path, lapiz);
+    final path = new Path();
 
-    }
-  
-    @override
-    bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    //Dibujar con el path y el lapiz
+    path.moveTo(0, size.height * 0.35);
+    path.lineTo(size.width, size.height * 0.30);
+    path.lineTo(size.width, 0);
+    path.lineTo(0, 0);
+
+    // path.lineTo(0, size.height*0.5);
+    canvas.drawPath(path, lapiz);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
   }
 }
-
 
 class HeaderTriangular extends StatelessWidget {
   @override
@@ -81,35 +78,32 @@ class HeaderTriangular extends StatelessWidget {
   }
 }
 
-class _HeaderTriangularPainter extends CustomPainter{
+class _HeaderTriangularPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-      
-      final lapiz = Paint();
-      
-      // Propiedades
-      lapiz.color       = Color(0xff615AAB);
-      lapiz.style       = PaintingStyle.fill; //.fill rellenar
-      lapiz.strokeWidth = 2;
+    final lapiz = Paint();
 
-      final path = new Path();
+    // Propiedades
+    lapiz.color = Color(0xff615AAB);
+    lapiz.style = PaintingStyle.fill; //.fill rellenar
+    lapiz.strokeWidth = 2;
 
-      //Dibujar con el path y el lapiz
-      path.lineTo(size.width, size.height);
-      path.lineTo(size.width, 0);
-      path.lineTo(0, 0);
-      
-      // path.lineTo(0, size.height*0.5);      
-      canvas.drawPath(path, lapiz);
+    final path = new Path();
 
-    }
-  
-    @override
-    bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    //Dibujar con el path y el lapiz
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, 0);
+    path.lineTo(0, 0);
+
+    // path.lineTo(0, size.height*0.5);
+    canvas.drawPath(path, lapiz);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
   }
 }
-
 
 class HeaderPico extends StatelessWidget {
   @override
@@ -124,33 +118,72 @@ class HeaderPico extends StatelessWidget {
   }
 }
 
-class _HeaderPicoPainter extends CustomPainter{
+class _HeaderPicoPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-      
-      final lapiz = Paint();
-      
-      // Propiedades
-      lapiz.color       = Color(0xff615AAB);
-      lapiz.style       = PaintingStyle.fill; //.fill rellenar
-      lapiz.strokeWidth = 2;
+    final lapiz = Paint();
 
-      final path = new Path();
+    // Propiedades
+    lapiz.color = Color(0xff615AAB);
+    lapiz.style = PaintingStyle.fill; //.fill rellenar
+    lapiz.strokeWidth = 2;
 
-      //Dibujar con el path y el lapiz
-      path.lineTo(0, size.height*0.25);
-      path.lineTo(size.width*0.5, size.height*0.3);
-      path.lineTo(size.width, size.height*0.25);
-      path.lineTo(size.width, 0);
-      // path.lineTo(0, 0);
-      
-      // path.lineTo(0, size.height*0.5);      
-      canvas.drawPath(path, lapiz);
+    final path = new Path();
 
-    }
-  
-    @override
-    bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    //Dibujar con el path y el lapiz
+    path.lineTo(0, size.height * 0.25);
+    path.lineTo(size.width * 0.5, size.height * 0.3);
+    path.lineTo(size.width, size.height * 0.25);
+    path.lineTo(size.width, 0);
+    // path.lineTo(0, 0);
+
+    // path.lineTo(0, size.height*0.5);
+    canvas.drawPath(path, lapiz);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
+class HeaderCurvo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      child: CustomPaint(
+        painter: _HeaderCurvoPainter(),
+      ),
+    );
+  }
+}
+
+class _HeaderCurvoPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final lapiz = Paint();
+
+    // Propiedades
+    lapiz.color = Color(0xff615AAB);
+    lapiz.style = PaintingStyle.fill; //.fill rellenar
+    lapiz.strokeWidth = 20;
+
+    final path = new Path();
+
+    //Dibujar con el path y el lapiz
+    path.lineTo(0, size.height * 0.30); 
+    path.quadraticBezierTo(size.width*0.5, size.height*0.4, size.width, size.height*0.30);
+    path.lineTo(size.width, 0);
+    // path.lineTo(size.width, size.height*0.25);
+
+
+    canvas.drawPath(path, lapiz);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
   }
 }
